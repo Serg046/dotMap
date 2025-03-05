@@ -38,5 +38,9 @@ jobs:
       with:
         dotnet-version: 6.x
 
+    - name: Install libssl
+      if: matrix.os == 'ubuntu-latest'
+      run: sudo apt-get -y install libssl3
+
     - name: Build and test
       run: dotnet test
