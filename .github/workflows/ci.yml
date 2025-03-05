@@ -45,5 +45,12 @@ jobs:
         wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb
         sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2_amd64.deb
 
-    - name: Build and test
-      run: dotnet test
+    - name: Re-reference built dotMap
+      uses: richardrigutins/replace-in-files@v2
+      with:
+        files: dotMap.FunctionalTests/dotMap.FunctionalTests.csproj
+        search-text: '</Project>'
+        replacement-text: '<ItemGroup><Reference Include="../dotMap/dotMap/bin/debug/netstandard2.0/dotMap.dll" OutputItemType="Analyzer" /></ItemGroup></Project>'
+
+    - name: Test
+      run: dotnet test dotMap.FunctionalTests/dotMap.FunctionalTests.csproj
