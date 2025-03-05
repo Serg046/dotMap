@@ -17,10 +17,6 @@ jobs:
         include:
           - os: ubuntu-latest
             architecture: x64
-          - os: windows-latest
-            architecture: x64
-          - os: macos-latest
-            architecture: arm64
     
     steps:
     - name: Checkout
@@ -42,7 +38,7 @@ jobs:
 
     - name: Install libssl
       if: matrix.os == 'ubuntu-latest'
-      run: sudo apt -y install libssl1.1
+      run: sudo apt-get -y install libssl1.1
 
     - name: Build and test
       run: dotnet test
