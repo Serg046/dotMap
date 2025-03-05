@@ -1,4 +1,4 @@
-<div align="center">
+<div align="center"> 
 
 [![NuGet](https://img.shields.io/nuget/v/dotMap)](https://www.nuget.org/packages/dotMap)
 [![License](https://img.shields.io/badge/LICENSE-MPL_2.0-green)](LICENSE)
