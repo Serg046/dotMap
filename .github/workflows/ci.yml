@@ -49,8 +49,8 @@ jobs:
       uses: richardrigutins/replace-in-files@v2
       with:
         files: dotMap.FunctionalTests/dotMap.FunctionalTests.csproj
-        search-text: '</Project>'
-        replacement-text: '<ItemGroup><Reference Include="../dotMap/dotMap/bin/debug/netstandard2.0/dotMap.dll" OutputItemType="Analyzer" /></ItemGroup></Project>'
+        search-text: '<ProjectReference Include="..\dotMap\dotMap.csproj" OutputItemType="Analyzer" />'
+        replacement-text: '<Reference Include="../dotMap/dotMap/bin/debug/netstandard2.0/dotMap.dll" OutputItemType="Analyzer" />'
 
     - name: Test
       run: dotnet test dotMap.FunctionalTests/dotMap.FunctionalTests.csproj
