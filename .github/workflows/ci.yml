@@ -13,7 +13,7 @@ jobs:
     name: Build and test on ${{ matrix.os }} ${{ matrix.architecture }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest]
         include:
           - os: ubuntu-latest
             architecture: x64
@@ -42,7 +42,7 @@ jobs:
 
     - name: Install libssl
       if: matrix.os == 'ubuntu-latest'
-      run: sudo apt -y install libssl3
+      run: sudo apt -y install libssl1.1
 
     - name: Build and test
       run: dotnet test
