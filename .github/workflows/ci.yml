@@ -25,12 +25,10 @@ jobs:
         fetch-depth: 0
 
     - name: Install .NET SDK
+      if: matrix.os != 'macos-latest'
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: 8.x
-
-    - name: Build
-      run: dotnet test
 
     - name: Install .NET SDK
       if: matrix.os == 'macos-latest'
@@ -38,18 +36,5 @@ jobs:
       with:
         dotnet-version: 6.x
 
-    - name: Install libssl
-      if: matrix.os == 'ubuntu-latest'
-      run: |
-        wget http://archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2_amd64.deb
-        sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2_amd64.deb
-
-    - name: Re-reference built dotMap
-      uses: richardrigutins/replace-in-files@v2
-      with:
-        files: dotMap.FunctionalTests/dotMap.FunctionalTests.csproj
-        search-text: '<ProjectReference Include="..\dotMap\dotMap.csproj" OutputItemType="Analyzer" />'
-        replacement-text: '<Reference Include="..\dotMap\bin\debug\netstandard2.0\dotMap.dll" /><Analyzer Include="..\dotMap\bin\debug\netstandard2.0\dotMap.dll" />'
-
-    - name: Test
-      run: dotnet test dotMap.FunctionalTests/dotMap.FunctionalTests.csproj
+    - name: Build and test
+      run: dotnet test
