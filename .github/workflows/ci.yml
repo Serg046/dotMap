@@ -24,6 +24,9 @@ jobs:
       with:
         fetch-depth: 0
 
+    - name: Build
+      run: dotnet build dotMap/dotMap.csproj -c debug
+
     - name: Install .NET SDK
       if: matrix.os == 'macos-latest'
       uses: actions/setup-dotnet@v4
