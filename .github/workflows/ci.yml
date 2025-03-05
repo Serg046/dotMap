@@ -31,6 +31,7 @@ jobs:
         dotnet-version: |
           2.x
           8.x
+          9.x
 
     - name: Install .NET SDK
       if: matrix.os == 'macos-latest'
@@ -45,4 +46,4 @@ jobs:
         sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2_amd64.deb
 
     - name: Build and test
-      run: dotnet test -verbosity:diagnostic --diag:log.txt
+      run: dotnet test 
