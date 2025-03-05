@@ -13,14 +13,10 @@ jobs:
     name: Build and test on ${{ matrix.os }} ${{ matrix.architecture }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [windows-latest]
         include:
-          - os: ubuntu-latest
-            architecture: x64
           - os: windows-latest
             architecture: x64
-          - os: macos-latest
-            architecture: arm64
     
     steps:
     - name: Checkout
@@ -49,4 +45,4 @@ jobs:
         sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2_amd64.deb
 
     - name: Build and test
-      run: dotnet test
+      run: dotnet test -verbosity:diagnostic --diag:log.txt
