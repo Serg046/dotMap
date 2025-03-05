@@ -44,7 +44,7 @@ jobs:
       with:
         files: dotMap.FunctionalTests/dotMap.FunctionalTests.csproj
         search-text: '<ProjectReference Include="..\dotMap\dotMap.csproj" OutputItemType="Analyzer" />'
-        replacement-text: '<Reference Include="..\dotMap\bin\debug\netstandard2.0\dotMap.dll" OutputItemType="Analyzer" />'
+        replacement-text: '<Reference Include="..\dotMap\bin\debug\netstandard2.0\dotMap.dll" PrivateAssets="all" />'
 
     - name: Test
       run: dotnet test dotMap.FunctionalTests/dotMap.FunctionalTests.csproj
