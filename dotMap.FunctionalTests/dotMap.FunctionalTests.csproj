@@ -10,9 +10,9 @@
     </PropertyGroup>
     <PropertyGroup Condition="$([MSBuild]::IsOsPlatform('OSX')) AND '$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)' == 'Arm64'">
         <TargetFramework>net6</TargetFramework>
+        <Nullable>enable</Nullable>
     </PropertyGroup>
     <PropertyGroup>
-        <Nullable>enable</Nullable>
         <IsPackable>false</IsPackable>
         <RootNamespace>dotMap.Tests</RootNamespace>
         <Configurations>Debug;Release</Configurations>
