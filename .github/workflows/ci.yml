@@ -33,6 +33,12 @@ jobs:
           8.x
 
     - name: Install .NET SDK
+      if: matrix.os == 'windows-latest'
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: 2.x
+
+    - name: Install .NET SDK
       if: matrix.os == 'macos-latest'
       uses: actions/setup-dotnet@v4
       with:
