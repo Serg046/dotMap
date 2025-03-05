@@ -28,7 +28,9 @@ jobs:
       if: matrix.os != 'macos-latest'
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 8.x
+        dotnet-version: |
+          2.x
+          8.x
 
     - name: Install .NET SDK
       if: matrix.os == 'macos-latest'
