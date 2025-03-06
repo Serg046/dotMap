@@ -5,7 +5,7 @@ on:
     inputs:
       release-version:
         description: "Release version"
-        default: "${{github.ref_name}}"
+        default: github.ref_name
 
 jobs:
   release:
