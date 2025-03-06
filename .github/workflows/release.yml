@@ -45,6 +45,14 @@ jobs:
         include: "dotMap/dotMap.csproj"
         regex: true
 
+    - name: Set
+      uses: jacobtomlinson/gha-find-replace@v3
+      with:
+        find: "name: Continuous Integration"
+        replace: "name: Continuous Integration ${{github.event.inputs.release-version}}"
+        include: ".github/workflows/ci.yml"
+        regex: false
+
     - name: Build
       run: dotnet build -c Release
 
@@ -53,6 +61,7 @@ jobs:
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git add dotMap/dotMap.csproj
+        git add .github/workflows/ci.yml
         git commit -m "Release v${{github.event.inputs.release-version}}"
         
     - name: Push and save the new version
