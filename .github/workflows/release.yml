@@ -30,7 +30,7 @@ jobs:
       with:
         dotnet-version: |
           2.x
-          9.x
+          8.x
 
     - name: Install libssl
       run: |
