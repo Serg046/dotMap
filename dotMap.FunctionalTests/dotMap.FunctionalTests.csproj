@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup Condition="$([MSBuild]::IsOsPlatform('Windows'))">
-        <TargetFramework>netcoreapp2.0</TargetFramework>
+        <TargetFramework>net461</TargetFramework>
         <SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
     </PropertyGroup>
     <PropertyGroup Condition="$([MSBuild]::IsOsPlatform('Linux'))">
