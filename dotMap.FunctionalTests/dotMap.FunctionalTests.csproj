@@ -11,6 +11,9 @@
     <PropertyGroup Condition="$([MSBuild]::IsOsPlatform('OSX')) AND '$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)' == 'Arm64'">
         <TargetFramework>net6</TargetFramework>
     </PropertyGroup>
+    <PropertyGroup Condition="$([MSBuild]::IsOsPlatform('OSX')) AND '$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)' == 'x64'">
+        <TargetFramework>netcoreapp2.0</TargetFramework>
+    </PropertyGroup>
     <PropertyGroup>
         <Nullable>enable</Nullable>
         <IsPackable>false</IsPackable>
