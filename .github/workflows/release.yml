@@ -19,6 +19,8 @@ jobs:
         fetch-depth: 0
 
     - name: Check the package release version
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         gh run cancel ${{github.run_id}} && gh run watch ${{github.run_id}}
         exit 0
