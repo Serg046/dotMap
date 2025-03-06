@@ -61,8 +61,8 @@ jobs:
     - name: Install libssl
       if: matrix.os == 'ubuntu-24.04-arm'
       run: |
-        wget http://ports.ubuntu.com/pool/main/o/openssl/	libssl1.1_1.1.1f-1ubuntu2.24_arm64.deb
-        sudo dpkg -i 	libssl1.1_1.1.1f-1ubuntu2.24_arm64.deb
+        wget http://ports.ubuntu.com/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.24_arm64.deb
+        sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2.24_arm64.deb
 
     - name: Build and test
       run: dotnet test 
