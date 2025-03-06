@@ -8,9 +8,7 @@ on:
         default: "1.0.0"
 
 jobs:
-
-  build-and-test:
-  
+  release:
     runs-on: windows-latest
     
     steps:
