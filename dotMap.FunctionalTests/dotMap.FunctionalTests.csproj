@@ -2,7 +2,6 @@
 
     <PropertyGroup Condition="$([MSBuild]::IsOsPlatform('Windows'))">
         <TargetFramework>net461</TargetFramework>
-        <SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
     </PropertyGroup>
     <PropertyGroup Condition="$([MSBuild]::IsOsPlatform('Linux'))">
         <TargetFramework>netcoreapp2.0</TargetFramework>
@@ -13,6 +12,7 @@
     </PropertyGroup>
     <PropertyGroup Condition="$([MSBuild]::IsOsPlatform('OSX')) AND '$([System.Runtime.InteropServices.RuntimeInformation]::OSArchitecture)' == 'x64'">
         <TargetFramework>netcoreapp2.0</TargetFramework>
+        <SuppressTfmSupportBuildWarnings>true</SuppressTfmSupportBuildWarnings>
     </PropertyGroup>
     <PropertyGroup>
         <Nullable>enable</Nullable>
