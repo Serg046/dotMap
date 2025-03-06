@@ -8,7 +8,8 @@ on:
         default: "1.0.0"
 
 jobs:
-  Release:
+  release:
+    name: Release v${{github.event.inputs.release-version}}
     runs-on: windows-latest
     
     steps:
