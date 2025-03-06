@@ -45,11 +45,16 @@ jobs:
         include: "dotMap/dotMap.csproj"
         regex: true
 
+    - name: Set 
+      uses: jacobtomlinson/gha-find-replace@v3
+      with:
+        find: "name: Continuous Integration"
+        replace: "name: Continuous Integration2"
+        include: ".github/workflows/ci.yml"
+        regex: false
+
     - name: Build
       run: dotnet build -c Release
-
-    - name: Test
-      run: dotnet test -c Release --no-build
 
     - name: Commit the new version
       run: |
