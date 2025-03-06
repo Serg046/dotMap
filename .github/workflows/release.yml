@@ -42,15 +42,3 @@ jobs:
         files: '.github/workflows/release.yml'
         search-text: 'default: ".*"'
         replacement-text: 'default: "{{github.event.inputs.release-version}}"'
-
-    - name: Commit the new version
-      run: |
-        git config --local user.email "github-actions[bot]@users.noreply.github.com"
-        git config --local user.name "github-actions[bot]"
-        git commit -a -m "Release v${{github.event.inputs.release-version}}"
-        
-    - name: Push and save the new version
-      uses: ad-m/github-push-action@master
-      with:
-        branch: ${{ github.head_ref }}
-        github_token: ${{ secrets.GITHUB_TOKEN }}
