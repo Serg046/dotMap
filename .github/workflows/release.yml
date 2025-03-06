@@ -18,6 +18,11 @@ jobs:
       with:
         fetch-depth: 0
 
+    - name: Check the package release version
+      run: |
+        gh run cancel ${{github.run_id}} && gh run watch ${{github.run_id}}
+        exit 0
+
     - name: Set the package release version
       uses: richardrigutins/replace-in-files@v2
       with:
