@@ -19,5 +19,11 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: Build and test
-      run: dotnet test
+    - name: Set the release version
+      run: echo ${{ github.event.inputs.release-version }}"
+
+    - name: Build
+      run: dotnet build -c Release
+
+    - name: Test
+      run: dotnet test -c Release --no-build
