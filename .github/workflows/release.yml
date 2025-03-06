@@ -61,6 +61,7 @@ jobs:
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git add dotMap/dotMap.csproj
+        git add .github/workflows/ci.yml
         git commit -m "Release v${{github.event.inputs.release-version}}"
         
     - name: Push and save the new version
