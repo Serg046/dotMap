@@ -33,7 +33,7 @@ jobs:
         fetch-depth: 0
 
     - name: Install .NET SDK
-      if: matrix.os == 'ubuntu-latest'
+      if: startsWith(matrix.os, 'ubuntu')
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: |
