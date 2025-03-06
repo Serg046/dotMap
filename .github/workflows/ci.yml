@@ -13,14 +13,18 @@ jobs:
     name: Build and test on ${{ matrix.os }} ${{ matrix.architecture }}
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest, macos-latest]
+        os: [ubuntu-latest, ubuntu-24.04-arm, windows-latest, macos-latest, macos-13]
         include:
           - os: ubuntu-latest
             architecture: x64
+          - os: ubuntu-24.04-arm
+            architecture: arm64
           - os: windows-latest
             architecture: x64
           - os: macos-latest
             architecture: arm64
+          - os: macos-13
+            architecture: x64
     
     steps:
     - name: Checkout
