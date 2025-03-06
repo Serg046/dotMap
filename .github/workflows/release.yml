@@ -25,6 +25,13 @@ jobs:
         [ "${{github.event.inputs.release-version}}" = "1.0.0" ] && gh run cancel ${{github.run_id}} && gh run watch ${{github.run_id}}
         exit 0
 
+    - name: Install .NET SDK
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: |
+          2.x
+          9.x
+
     - name: Set the package release version
       uses: richardrigutins/replace-in-files@v2
       with:
@@ -38,9 +45,15 @@ jobs:
     - name: Test
       run: dotnet test -c Release --no-build
 
-    - name: Set the new job version
-      uses: richardrigutins/replace-in-files@v2
+    - name: Commit the new version
+      run: |
+        git config --local user.email "github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git add dotMap/dotMap.csproj
+        git commit -m "Release v${{github.event.inputs.release-version}}"
+        
+    - name: Push and save the new version
+      uses: ad-m/github-push-action@master
       with:
-        files: '.github/workflows/release.yml'
-        search-text: 'default: ".*"'
-        replacement-text: 'default: "{{github.event.inputs.release-version}}"'
+        branch: ${{ github.ref_name }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
