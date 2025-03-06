@@ -10,7 +10,7 @@ on:
 jobs:
   release:
     name: Release v${{github.event.inputs.release-version}}
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     
     steps:
     - name: Checkout
@@ -22,7 +22,7 @@ jobs:
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        [ "${{github.event.inputs.release-version}}" = "1.0.0" ] && gh run cancel ${{github.run_id}} && gh run watch ${{github.run_id}}
+        ["${{github.event.inputs.release-version}}" = "1.0.0"] && gh run cancel ${{github.run_id}} && gh run watch ${{github.run_id}}
         exit 0
 
     - name: Set the package release version
