@@ -18,7 +18,13 @@ jobs:
     name: Test ${{github.ref_name}}
     runs-on: ubuntu-latest
 
-    steps:
+    steps:    
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        ref: main
+
     - name: Check permissions
       if: github.actor != 'Serg0466'
       env:
@@ -26,12 +32,6 @@ jobs:
       run: |
         gh run cancel ${{ github.run_id }} && gh run watch ${{ github.run_id }}
         exit 0
-    
-    - name: Checkout
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-        ref: main
 
     - name: Install .NET SDK
       uses: actions/setup-dotnet@v4
