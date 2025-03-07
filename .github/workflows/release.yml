@@ -40,9 +40,11 @@ jobs:
       run: dotnet test
 
   release:
-    name: Release v${{release-version}}
     needs: test
+    name: Release v${{needs.test.release-versio}}
     runs-on: ubuntu-latest
+    env:
+      release-versio: ${{needs.test.release-versio}}
     
     steps:
     - name: Checkout
