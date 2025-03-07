@@ -1,5 +1,4 @@
-name: Release
-
+name: Release v${{github.ref_name}}
 on:
   push:
     tags:        
@@ -7,7 +6,7 @@ on:
 
 jobs:
   release:
-    name: Release v${{github.ref_name}
+    name: Release v${{github.ref_name}}
     runs-on: ubuntu-latest
     
     steps:
