@@ -12,10 +12,10 @@ on:
 
 jobs:
   test:
-    env:
-      release-version: ${{ github.event.inputs.release-version }}
-    name: Test v${{release-version}}
+    name: Test v${{github.event.inputs.release-version}}
     runs-on: ubuntu-latest
+    env:
+      release-version: ${{github.event.inputs.release-version}}
 
     steps:
     - name: Checkout
