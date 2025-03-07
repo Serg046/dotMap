@@ -20,7 +20,7 @@ jobs:
 
     steps:
     - name: Check permissions
-      if: github.actor != "Serg0466"
+      if: github.actor != 'Serg0466'
       run: |
         gh run cancel ${{ github.run_id }} && gh run watch ${{ github.run_id }}
         exit 0
