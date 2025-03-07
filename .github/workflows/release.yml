@@ -21,6 +21,8 @@ jobs:
     steps:
     - name: Check permissions
       if: github.actor != 'Serg0466'
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         gh run cancel ${{ github.run_id }} && gh run watch ${{ github.run_id }}
         exit 0
