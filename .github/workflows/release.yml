@@ -11,7 +11,7 @@ on:
       - '*'
 
 env:
-  release-version: ${{github.event.inputs.release-version}}
+  release-version: ${{ github.event.inputs.release-version || github.ref_name }}
 
 jobs:
   test:
