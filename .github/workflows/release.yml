@@ -6,7 +6,7 @@ on:
 
 jobs:
   test:
-    name: Test the release v${{github.ref_name}}
+    name: Test v${{github.ref_name}}
     runs-on: ubuntu-latest
 
     steps:
@@ -51,8 +51,8 @@ jobs:
         include: "dotMap/dotMap.csproj"
         regex: true
 
-    - name: Build
-      run: dotnet build dotMap/dotMap.csproj -c Release
+    - name: Build and pack
+      run: dotnet pack dotMap/dotMap.csproj -c Release
 
     - name: Save and push the new version
       run: |
