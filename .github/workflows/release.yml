@@ -15,10 +15,16 @@ env:
 
 jobs:
   test:
-    name: Test v${{github.ref_name}}
+    name: Test ${{github.ref_name}}
     runs-on: ubuntu-latest
 
     steps:
+    - name: Check permissions
+      if: github.actor != "Serg0466"
+      run: |
+        gh run cancel ${{ github.run_id }} && gh run watch ${{ github.run_id }}
+        exit 0
+    
     - name: Checkout
       uses: actions/checkout@v4
       with:
@@ -41,7 +47,7 @@ jobs:
       run: dotnet test
 
   release:
-    name: Release v${{github.ref_name}}
+    name: Release ${{github.ref_name}}
     needs: test
     runs-on: ubuntu-latest
     
