@@ -41,7 +41,7 @@ jobs:
       run: dotnet test
 
   release:
-    name: Release v${{env.release-version}}
+    name: Release
     needs: test
     runs-on: ubuntu-latest
     
