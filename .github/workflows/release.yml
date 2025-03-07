@@ -58,7 +58,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: NuGet packages
-        path: /**/*.nupkg
+        path: dotMap/**/*.nupkg
 
     - name: Save and push the new version
       run: |
