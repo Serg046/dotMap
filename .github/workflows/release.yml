@@ -75,7 +75,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: NuGet packages
-        path: dotMap/**/*.nupkg
+        path: dotMap/bin/Release/dotMap.${{env.release-version}}.nupkg
 
     - name: Save and push the new version
       run: |
