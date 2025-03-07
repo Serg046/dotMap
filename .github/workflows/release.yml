@@ -1,12 +1,20 @@
 name: Release
 on:
+  workflow_dispatch:
+    inputs:
+      release-version:
+        description: 'Release version'
+        required: true
+        default: '0.0.1'
   push:
     tags:        
       - '*' 
 
 jobs:
   test:
-    name: Test v${{github.ref_name}}
+    env:
+      release-version: ${{ github.event.inputs.release-version }}
+    name: Test v${{release-version}}
     runs-on: ubuntu-latest
 
     steps:
@@ -32,7 +40,7 @@ jobs:
       run: dotnet test
 
   release:
-    name: Release v${{github.ref_name}}
+    name: Release v${{release-version}}
     needs: test
     runs-on: ubuntu-latest
     
@@ -47,7 +55,7 @@ jobs:
       uses: jacobtomlinson/gha-find-replace@v3
       with:
         find: "<Version>.*</Version>"
-        replace: "<Version>${{github.ref_name}}</Version>"
+        replace: "<Version>${{release-version}}</Version>"
         include: "dotMap/dotMap.csproj"
         regex: true
 
@@ -65,5 +73,5 @@ jobs:
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git add dotMap/dotMap.csproj
-        git commit -m "Release v${{github.ref_name}}"
+        git commit -m "Release v${{release-version}}"
         git push
