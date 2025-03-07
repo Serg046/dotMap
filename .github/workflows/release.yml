@@ -11,11 +11,11 @@ on:
       - '*'
 
 env:
-  release-version: '0.1.1'
+  release-version: ${{github.event.inputs.release-version}}
 
 jobs:
   test:
-    name: Test
+    name: Test v${{github.ref_name}}
     runs-on: ubuntu-latest
 
     steps:
@@ -41,7 +41,7 @@ jobs:
       run: dotnet test
 
   release:
-    name: Release
+    name: Release v${{github.ref_name}}
     needs: test
     runs-on: ubuntu-latest
     
