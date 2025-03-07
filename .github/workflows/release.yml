@@ -11,11 +11,11 @@ on:
       - '*'
 
 env:
-  release-version: ${{github.event.inputs.release-version}}
+  RELEASE_VERSION: ${{github.event.inputs.release-version}}
 
 jobs:
   test:
-    name: Test v$env.release-version
+    name: Test v$RELEASE_VERSION
     runs-on: ubuntu-latest
 
     steps:
