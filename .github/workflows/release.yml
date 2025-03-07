@@ -12,7 +12,7 @@ on:
 
 jobs:
   test:
-    name: Test v${{github.event.inputs.release-version}}
+    name: Test v$release-version
     runs-on: ubuntu-latest
     env:
       release-version: ${{github.event.inputs.release-version}}
@@ -57,7 +57,7 @@ jobs:
       uses: jacobtomlinson/gha-find-replace@v3
       with:
         find: "<Version>.*</Version>"
-        replace: "<Version>${{release-version}}</Version>"
+        replace: "<Version>$release-version</Version>"
         include: "dotMap/dotMap.csproj"
         regex: true
 
@@ -75,5 +75,5 @@ jobs:
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git add dotMap/dotMap.csproj
-        git commit -m "Release v${{release-version}}"
+        git commit -m "Release v$release-version"
         git push
