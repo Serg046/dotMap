@@ -15,7 +15,7 @@ env:
 
 jobs:
   test:
-    name: Test v${{ RELEASE_VERSION }}
+    name: Test v${{ env.RELEASE_VERSION }}
     runs-on: ubuntu-latest
 
     steps:
