@@ -54,15 +54,10 @@ jobs:
     - name: Build
       run: dotnet build dotMap/dotMap.csproj -c Release
 
-    - name: Commit the new version
+    - name: Save and push the new version
       run: |
         git config --local user.email "github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
         git add dotMap/dotMap.csproj
         git commit -m "Release v${{github.event.inputs.release-version}}"
-        
-    - name: Push and save the new version
-      uses: ad-m/github-push-action@master
-      with:
-        branch: ${{ github.ref_name }}
-        github_token: ${{ secrets.WORKFLOW_TOKEN }}
+        git push
