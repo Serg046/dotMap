@@ -77,7 +77,7 @@ jobs:
         name: NuGet packages
         path: |
           dotMap/bin/Release/dotMap.${{env.release-version}}.nupkg
-          dotMap/bin/Release/dotMap.${{env.release-version}}.symbols.snupkg
+          dotMap/bin/Release/dotMap.${{env.release-version}}.snupkg
 
     - name: Save and push the new version
       run: |
