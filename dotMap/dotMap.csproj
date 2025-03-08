@@ -18,6 +18,7 @@
     <PackageTags>dotMap mapping mapper automapper auto-mapper auto-mapping</PackageTags>
     <IncludeBuildOutput>true</IncludeBuildOutput>
     <IncludeSymbols>true</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
   </PropertyGroup>
 
   <ItemGroup>
