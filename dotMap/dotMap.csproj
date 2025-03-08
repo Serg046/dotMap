@@ -7,7 +7,7 @@
     <LangVersion>latest</LangVersion>
     <PackageId>dotMap</PackageId>
     <Title>dotMap</Title>
-    <Version>0.0.3</Version>
+    <Version>0.0.5</Version>
     <Description>Convention-based object-to-object compile time mapper for .NET</Description>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
