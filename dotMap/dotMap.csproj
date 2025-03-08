@@ -5,10 +5,18 @@
     <IncludeBuildOutput>false</IncludeBuildOutput>
     <ImplicitUsings>true</ImplicitUsings>
     <LangVersion>latest</LangVersion>
+    <PackageId>dotMap</PackageId>
+    <Title>dotMap</Title>
     <Version>0.0.3</Version>
-    <Nullable>enable</Nullable>
-	<EnforceExtendedAnalyzerRules>true</EnforceExtendedAnalyzerRules>
-	<Configurations>Debug;Release;Simulator</Configurations>
+    <Description>Convention-based object-to-object compile time mapper for .NET</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <Company>Devexperts</Company>
+    <PackageProjectUrl>https://github.com/devexperts/dotMap</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/devexperts/dotMap</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>dotMap mapping mapper automapper auto-mapper auto-mapping</PackageTags>
+    <IncludeSymbols>false</IncludeSymbols>
   </PropertyGroup>
 
   <ItemGroup>
@@ -18,5 +26,7 @@
   <ItemGroup>
     <InternalsVisibleTo Include="dotMap.UnitTests" />
     <None Include="$(OutputPath)\$(AssemblyName).dll" Pack="true" PackagePath="analyzers/dotnet/cs" Visible="false" />
+    <None Include="..\README.md" Pack="true" PackagePath="\"/>
+    <None Include="..\LICENSE" Pack="true" PackagePath=""/>
   </ItemGroup>	
 </Project>
