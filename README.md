@@ -1,4 +1,4 @@
-<center>
+<p align="center">
 [![NuGet](https://img.shields.io/nuget/v/dotMap)](https://www.nuget.org/packages/dotMap)
 [![License](https://img.shields.io/badge/LICENSE-MPL_2.0-green)](LICENSE)
 [![NuGet Downloads](https://img.shields.io/nuget/dt/dotMap)](https://www.nuget.org/packages/dotMap)
@@ -19,7 +19,7 @@ to focus more on business logic rather than boilerplate mapping code.
 <a href="https://github.com/devexperts/dotmap">dotMap</a> is ideal for developers looking for a streamlined and 
 reliable solution for object mapping in .NET applications, improving code maintainability and reducing 
 the likelihood of errors during data transfer operations.
-</center>
+</p>
 
 ## Table of contents
 
