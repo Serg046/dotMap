@@ -82,7 +82,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: Files
-        path: /**/*
+        path: dotMap/**/*
 
     - name: Save and push the new version
       run: |
