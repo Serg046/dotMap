@@ -73,7 +73,7 @@ jobs:
       with:
         file: "docs/images/logo.svg"
         path: "docs/images"
-        name: "logo.png"
+        name: "logo"
 
     - name: Build and pack
       run: dotnet pack dotMap/dotMap.csproj -c Release
