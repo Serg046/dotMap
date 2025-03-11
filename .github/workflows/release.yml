@@ -68,12 +68,6 @@ jobs:
         include: "dotMap/dotMap.csproj"
         regex: true
 
-    - name: Convert svg icon to png for the nuget2
-      uses: joergnapp/convert-svg-to-png@main
-      with:
-        svgpath: 'docs/images/logo.svg'
-        pngpath: 'docs/images/logo.png'
-
     - name: Convert svg icon to png for the nuget
       uses: joseaeltala/convert-svg-to-png/@master
       with:
