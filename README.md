@@ -3,7 +3,7 @@
 [![License](https://img.shields.io/badge/LICENSE-MPL_2.0-green)](LICENSE)
 [![NuGet Downloads](https://img.shields.io/nuget/dt/dotMap)](https://www.nuget.org/packages/dotMap)
 
-![Logo](https://media.githubusercontent.com/media/devexperts/dotMap/refs/heads/main/docs/images/logo.png)
+![Logo](docs/images/logo.png)
 
 # dotMap for .NET
 
